@@ -17,23 +17,29 @@ $ git clone https://github.com/<username>/git-dig.git
 $ cd git-dig/
 ```
 
-### Running Git-Dig
-1. Initialize Git-Dig to start tracking sensitive data in the Git repository's history.
-```shell
-$ ./git-dig.sh init
+## Running Git-Dig
+
+Git-Dig is a powerful script that allows you to search for specific strings or keywords within your Git repository. It helps you track sensitive data and analyze the Git history for potential security issues. Here, we explain various ways to run Git-Dig and the corresponding commands.
+
+### Searching for a specific string
+
+To search for a specific string within your Git repository, use the following command:
+
+```bash
+$ bash git-dig.sh -i "string to search for"
 ```
-The above command will create necessary files and directories required for Git-Dig to function.
 
-2. Start committing changes as usual to the Git repository.
+Replace `"string to search for"` with the actual string you want to search for. Git-Dig will then scan your repository and display any occurrences of the specified string.
 
-### Analyzing the Git History
-1. To check for sensitive data in the Git history, run the following command:
-```shell
-$ ./git-dig.sh footrpt
+### Searching using a list of keywords
+
+If you have a list of keywords and want to search for all of them within your Git repository, use the following command:
+
+```bash
+$ bash git-dig.sh -f key-list.txt
 ```
-Git-Dig will scan the Git history for any potentially sensitive data and display any findings.
 
-Note: It is recommended to run this command periodically to ensure sensitive information is not present in the Git history.
+Replace `key-list.txt` with the filename that contains your list of keywords. Git-Dig will go through each keyword in the list and display any occurrences found in your repository.
 
 2. If any sensitive data is detected, you can take appropriate actions to remove or secure the information. Make necessary changes and amend the commits if needed.
 
